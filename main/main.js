@@ -3,18 +3,17 @@ import { sleep } from 'k6';
 import { error_check } from '../check/check.js';
 import { scenario } from 'k6/execution';
 
-import { ran2,getCSV } from '../api/testAPI.js';  // <<<<<<< ตัวอย่างการ import API ran2 จากไฟล์ testAPI.js (สามารถลบทิ้งได้)
 import { Register } from '../api/Register.js';
 import { uploadfilemedtech } from '../api/uploadfilemedtech.js';
+import { post } from '../api/post.js';
+
 
 //============================================================================
 
 export default function () {    //เรียกใช้ API ใน export default function
-
-  response  = ran2();    //<<<<<< ตัวอย่างการ เรียกใช้ API ran2  (สามารถลบทิ้งได้
+  response = post(scenario)
   //response  = Register();
   //response  = uploadfilemedtech();
-  //response  = getCSV(scenario); 
   error_check(response);
   sleep(1)
 }
@@ -105,7 +104,7 @@ const vusx = Math.ceil(user / durationx);
 if(scenariox==1){
   options = {
     http: {
-      timeout: '2s' 
+      timeout: '300s' 
     },
     insecureSkipTLSVerify: true,
       discardResponseBodies: true,

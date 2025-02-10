@@ -62,7 +62,7 @@ export default function() {
       }));
   
       filteredPasses.forEach((item) => {
-        console.log(`❌ ${item.status}: ${item.passes}`);
+        console.log(`${item.status}: ${item.passes}`);
       });
       if (error!=0) {
         if (unknown!=0) {
