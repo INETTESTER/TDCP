@@ -4,9 +4,9 @@
 ##########################################################################
 ##########################################################################
 ##########################################################################
-                     projectname="template" #ตั้งชื่อ projhttpsect ให้เหมือนกัน
-                     google_sheet="https://docs.google.com/spreadsheets/d/1H7UgGtAy3JKvulLqGXVm5zeNq1FdNKonMxxBETQtjXQ/edit?gid=1610289956#gid=1610289956" 
-                     id="2"                 #เปลี่ยน id ทุกครั้งที่ยิง
+                     projectname="oauth_create_qr_cimb" #ตั้งชื่อ projhttpsect ให้เหมือนกัน
+                     google_sheet="https://docs.google.com/spreadsheets/d/13ZqmW82FnQj_uY-9VjUCPNvBMFEZJcodK1AmRn_euW0/edit?gid=180143788#gid=180143788" 
+                     id="3"                 #เปลี่ยน id ทุกครั้งที่ยิง
                      user="1";            #จำนวนผู้ใช้งาน
                      durationx="1";         #วินาที
                      scenario="3"           #scenario="1" ยิงเเบบกำหนด request (duration ได้แค่ 1 วินาที)

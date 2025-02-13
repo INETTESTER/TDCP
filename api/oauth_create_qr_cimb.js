@@ -3,10 +3,10 @@ import { check } from 'k6';
 export function oauth_create_qr_cimb() {
     //Step 1 : OAUTH
     const url_oauth = 'https://new-ops-clone.inet.co.th/oauth/api/v1/oauth-token';
-    const orderId = `26${__VU}${__ITER}7`;
+    const orderId = `1${__VU}${__ITER}1`;
     const payload_oauth = JSON.stringify({  
         key: "WQMfmEUDuK7RZtyY0QG/U3sRXQdDtLw591j2cajzZGzj/8PO9LlmGLgpPanCPGQRuFVkwWliuhMmJikWwxj7TuE4iZ+Rkf9lnBMgZnqsPlG6WOXPP3a4p1TyuGrq1QR+UraKNlGH+jhxZ/QOmHyFSuIoyjXR1W4TTOL7X/tJkZk=",
-        orderId: "LOADTEST-241113001"+orderId
+        orderId: "IMAGE-TEST-QR-CIMB"+orderId
     });
     const params_oauth = {
         headers: {
@@ -41,7 +41,7 @@ export function oauth_create_qr_cimb() {
     const url_transaction = 'https://new-ops-clone.inet.co.th/api/v1/payment-transactions/access-token';
     const payload_transaction = JSON.stringify({ 
         key: "WQMfmEUDuK7RZtyY0QG/U3sRXQdDtLw591j2cajzZGzj/8PO9LlmGLgpPanCPGQRuFVkwWliuhMmJikWwxj7TuE4iZ+Rkf9lnBMgZnqsPlG6WOXPP3a4p1TyuGrq1QR+UraKNlGH+jhxZ/QOmHyFSuIoyjXR1W4TTOL7X/tJkZk=",
-        orderId: "LOADTEST-241113001"+orderId,
+        orderId: "IMAGE-TEST-QR-CIMB"+orderId,
         orderDesc: "LOAD TEST CIMB",
         amount: 1,
         apUrl: "https://www.google.co.th",
