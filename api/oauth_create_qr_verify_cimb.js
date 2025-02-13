@@ -114,13 +114,13 @@ export function oauth_create_qr_verify_cimb() {
         });
 
     //Step 4 : Verify
-    let url_verify = 'https://new-ops-clone.inet.co.th/cimb/api/payment/cimb/verifydata/v1';
-    let headers_verify = {
+    const url_verify = 'https://new-ops-clone.inet.co.th/cimb/api/payment/cimb/verifydata/v1';
+    const headers_verify = {
     'True-Client-Ip': '184.22.188.182',
     'Content-Type': 'application/json',
     'Authorization': 'Basic Y2ltYnByb21wdHBheTpDMU04b25wcmQ=', // แทนที่ด้วย Token จริง
     };
-    let payload_verify = JSON.stringify({
+    const payload_verify = JSON.stringify({
      header: {
          requester_system: 'SIBS',
         request_reference_no: 'BP202004021536201234543231',
