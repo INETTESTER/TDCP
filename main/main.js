@@ -23,6 +23,7 @@ import { oauth_bay } from '../api/oauth_bay.js';
 import { oauth_create_bay } from '../api/oauth_create_bay.js';
 import { oauth_create_qr_bay } from '../api/oauth_create_qr_bay.js';
 import { oauth_create_qr_callback_bay } from '../api/oauth_create_qr_callback_bay.js';
+import { callback_bay } from '../api/callback_bay.js';
 // import { oauth_create_inquirypertxn_scb } from '../api/oauth_create_inquirypertxn_scb.js';
 // import { oauth_create_inquirydate_scb } from '../api/oauth_create_inquirydate_scb.js';
 
@@ -54,7 +55,8 @@ export default function () {    //เรียกใช้ API ใน export def
   //response = oauth_bay()
   //response = oauth_create_bay()
   //response = oauth_create_qr_bay()
-  response = oauth_create_qr_callback_bay()
+  //response = oauth_create_qr_callback_bay()
+  response = callback_bay()
   error_check(response);
   sleep(1)
 }
