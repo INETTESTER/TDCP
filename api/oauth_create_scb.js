@@ -1,9 +1,9 @@
 import http from 'k6/http';
 import { check } from 'k6';
-export function oauth_create_scb() {
+export function oauth_create_scb(cid) {
     //Step 1 : OAUTH
     const url_oauth = 'https://new-ops-clone.inet.co.th/oauth/api/v1/oauth-token';
-    const orderId = `2${__VU}${__ITER}15`;
+    const orderId = `2${__VU}${__ITER}${cid}15`;
     const payload_oauth = JSON.stringify({  
          key: "T1kbWWoJs68MZ+CZAO2NnitijJviGOhmwpHABEHyMTDt9cckRkbis7ssQOHfRyVmc8rKE8iORfW2WnRvCvS6k0Yj4U4uP4mbiu1K2utFeOBJZmX8CdkDt2nHWnDdbQN0UdCwPYhuqr8HW6O/nyuhqKggh0g77DVZvGfZnDIaPRI=",
          orderId: "LOADTEST-241113002"+orderId

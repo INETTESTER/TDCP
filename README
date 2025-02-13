@@ -1,2 +1,4 @@
 C:\Windows\System32\drivers\etc
 203.154.224.122 new-ops-clone.inet.co.th
+
+netsh int ipv4 set dynamicport tcp start=1025 num=64511 ขยาย port
