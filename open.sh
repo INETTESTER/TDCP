@@ -8,7 +8,7 @@
                      google_sheet="https://docs.google.com/spreadsheets/d/13ZqmW82FnQj_uY-9VjUCPNvBMFEZJcodK1AmRn_euW0/edit?gid=180143788#gid=180143788" 
                      id="3"                 #เปลี่ยน id ทุกครั้งที่ยิง
                      user="1";            #จำนวนผู้ใช้งาน
-                     durationx="1";         #วินาที
+                     durationx="60";         #วินาที
                      scenario="3"           #scenario="1" ยิงเเบบกำหนด request (duration ได้แค่ 1 วินาที)
                      cid=""                 #scenario="2" ยิงเเบบกำหนด VUs  (กำหนดว่า user x คน ใช้ระบบ x วินาที)
                                             #scenario="3" ยิงเเบบกำหนด request แต่ไม่แม่นยำ (duration กี่วินาทีก็ได้)
