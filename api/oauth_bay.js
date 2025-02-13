@@ -10,6 +10,6 @@ export  function oauth_bay() {
     orderId: 'LOADTEST-20250213-BAY',
   });
 
-  let res_token = http.post(url_token, payload_token, { headers: headers_token });
+  let res_token = http.post(url_token, payload_token, { headers: headers_token },{timeout: 300000});
   return res_token
 }

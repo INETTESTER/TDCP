@@ -14,6 +14,6 @@ export  function callback_bay() {
     channel: '4',
   });
 
-  let res_qr_callback = http.post(url_qr_callback, payload_qr_callback, { headers: { 'Content-Type': 'application/json' } });
+  let res_qr_callback = http.post(url_qr_callback, payload_qr_callback, { headers: { 'Content-Type': 'application/json' } },{timeout: 300000});
   return res_qr_callback
 }

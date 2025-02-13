@@ -4,59 +4,49 @@ import { error_check } from '../check/check.js';
 import { scenario } from 'k6/execution';
 
 import { oauth_create_qr_verify_cimb } from '../api/oauth_create_qr_verify_cimb.js';
-// import { oaut_scb } from '../api/oauth_scb.js';
-// import { create_transaction } from '../api/create_transaction.js';
-// import { inquirypertxn } from '../api/inquirypertxn.js';
-// import { inquirydate } from '../api/inquirydate.js';
-// import { callback_scb } from '../api/callback_scb.js';
-// import { oauth_create_qr_callback_scb } from '../api/oauth_create_qr_callback_scb.js';
-// import { oauth_create_scb } from '../api/oauth_create_scb.js';
-// import { oauth_create_callback_scb } from '../api/oauth_create_callback_scb.js';
-// import { oauth_create_cimb } from '../api/oauth_create_cimb.js';
-// import { oauth_create_callback_cimb } from '../api/oauth_create_callback_cimb.js';
-// import { oauth_cimb } from '../api/oauth_cimb.js';
-// import { oauth_create_qr_cimb } from '../api/oauth_create_qr_cimb.js';
-// import { oauth_create_qr_scb } from '../api/oauth_create_qr_scb.js';
- import { oauth_create_qr_verify_callback_cimb } from '../api/oauth_create_qr_verify_callback_cimb.js';
+import { oaut_scb } from '../api/oauth_scb.js';
+import { inquirypertxn } from '../api/inquirypertxn.js';
+import { inquirydate } from '../api/inquirydate.js';
+import { callback_scb } from '../api/callback_scb.js';
+import { oauth_create_scb } from '../api/oauth_create_scb.js';
+import { oauth_cimb } from '../api/oauth_cimb.js';
+import { oauth_create_qr_cimb } from '../api/oauth_create_qr_cimb.js';
+import { oauth_create_qr_scb } from '../api/oauth_create_qr_scb.js';
+import { oauth_create_qr_verify_callback_cimb } from '../api/oauth_create_qr_verify_callback_cimb.js';
 import { oauth_create_qr_callback_scb } from '../api/oauth_create_qr_callback_scb.js';
 import { oauth_bay } from '../api/oauth_bay.js';
 import { oauth_create_bay } from '../api/oauth_create_bay.js';
 import { oauth_create_qr_bay } from '../api/oauth_create_qr_bay.js';
 import { oauth_create_qr_callback_bay } from '../api/oauth_create_qr_callback_bay.js';
 import { callback_bay } from '../api/callback_bay.js';
-// import { oauth_create_inquirypertxn_scb } from '../api/oauth_create_inquirypertxn_scb.js';
-// import { oauth_create_inquirydate_scb } from '../api/oauth_create_inquirydate_scb.js';
+import { oauth_create_inquirypertxn_scb } from '../api/oauth_create_inquirypertxn_scb.js';
+import { oauth_create_inquirydate_scb } from '../api/oauth_create_inquirydate_scb.js';
 
 
 //============================================================================
 
 export default function () {    //เรียกใช้ API ใน export default function
-  //response = create_transaction()
-  //response = inquirypertxn()
-  //response = inquirydate()
-  //response = oauth_create_qr_callback_scb()
+  // response = inquirypertxn()                  
+  // response = inquirydate()
 //=======================SCB==================================
-  //response = oaut_scb()
-  //response = callback_scb(scenario)
-  //response = oauth_create_scb()
-  //response = oauth_create_callback_scb(scenario)
-  //response = oauth_create_qr_scb()
-  //response = oauth_create_inquirypertxn_scb()
-  //response = oauth_create_inquirydate_scb()
-  //response = oauth_create_qr_callback_scb(scenario)
+  // response = oaut_scb()
+  // response = callback_scb(scenario)
+  // response = oauth_create_scb()
+  // response = oauth_create_qr_scb()
+  // response = oauth_create_inquirypertxn_scb()
+  // response = oauth_create_inquirydate_scb()
+  // response = oauth_create_qr_callback_scb(scenario)
 //=======================CIMB=================================
-  //response = oauth_cimb()
-  //response = oauth_create_cimb()
-  //response = oauth_create_callback_cimb(scenario)
-  //response = oauth_create_qr_cimb()
-  //response = oauth_create_qr_verify_cimb()
-  //response = oauth_create_qr_verify_callback_cimb()
+  // response = oauth_cimb()
+  // response = oauth_create_qr_cimb()
+  // response = oauth_create_qr_verify_cimb()
+  // response = oauth_create_qr_verify_callback_cimb()
 //=======================BAY=================================
-  //response = oauth_bay()
-  //response = oauth_create_bay()
-  //response = oauth_create_qr_bay()
-  //response = oauth_create_qr_callback_bay()
-  response = callback_bay()
+  // response = oauth_bay()
+  // response = oauth_create_bay()
+  // response = oauth_create_qr_bay()
+  // response = oauth_create_qr_callback_bay()
+  // response = callback_bay()
   error_check(response);
   sleep(1)
 }
