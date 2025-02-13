@@ -119,7 +119,7 @@ export function oauth_create_qr_verify_callback_cimb() {
     const headers_verify = {
     'True-Client-Ip': '184.22.188.182',
     'Content-Type': 'application/json',
-    'Authorization': '••••••', // แทนที่ด้วย Token จริง
+    'Authorization': 'Basic Y2ltYnByb21wdHBheTpDMU04b25wcmQ=', // แทนที่ด้วย Token จริง
     };
     const payload_verify = JSON.stringify({
      header: {
