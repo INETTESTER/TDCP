@@ -91,7 +91,10 @@ export function oauth_create_qr_scb() {
         }
     };
     const response_qr = http.post(url_qr, payload_qr, params_qr,{timeout: 300000});
-    
+    if (!response_qr || response_qr.error_code || (response_qr.status !== 200 && response_qr.status !== 201)){
+        console.log("Create Fail");
+        return response_qr
+    }
    
     return response_qr
 }

@@ -15,6 +15,7 @@ export function oauth_create_scb() {
     };
     const response_oauth = http.post(url_oauth, payload_oauth, params_oauth,{timeout: 300000});
     if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)){
+        console.log("Oauth Fail!!");
         return response_oauth
     }
     const responseBody_oauth = JSON.parse(response_oauth.body);
@@ -55,7 +56,10 @@ export function oauth_create_scb() {
     };
 
     const response_transaction = http.post(url_transaction, payload_transaction, params_transaction,{timeout: 300000});
-
+    if (!response_transaction || response_transaction.error_code || (response_transaction.status !== 200 && response_transaction.status !== 201)){
+        console.log("Create Fail!!");
+        return response_transaction
+    }
     return response_transaction
     
 //===============================================================================================================================================================================================

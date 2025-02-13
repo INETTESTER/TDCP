@@ -91,7 +91,7 @@ export function oauth_create_qr_cimb() {
             'Authorization': 'Basic Y2ltYnByb21wdHBheTpDMU04Zzt2aU49eWpvVTRU'
         }
     };
-    const response_qr = http.post(url_qr, payload_qr, params_qr);
+    const response_qr = http.post(url_qr, payload_qr, params_qr,{timeout: 300000});
     if (!response_qr || response_qr.error_code || (response_qr.status !== 200 && response_qr.status !== 201)){
         console.log("QR Code Fail!!");
         return response_qr
