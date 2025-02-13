@@ -3,17 +3,16 @@ import { sleep } from 'k6';
 import { error_check } from '../check/check.js';
 import { scenario } from 'k6/execution';
 
-import { Register } from '../api/Register.js';
-import { uploadfilemedtech } from '../api/uploadfilemedtech.js';
-import { post } from '../api/post.js';
+import { oauth_create_cimb } from '../api/oauth_create_cimb.js';
+
 
 
 //============================================================================
 
 export default function () {    //เรียกใช้ API ใน export default function
-  response = post(scenario)
-  //response  = Register();
-  //response  = uploadfilemedtech();
+  response = oauth_create_cimb()
+
+
   error_check(response);
   sleep(1)
 }
