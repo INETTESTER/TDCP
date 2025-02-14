@@ -9,11 +9,12 @@ export function oauth_create_scb(cid) {
          orderId: "LOADTEST-241113002"+orderId
     });
     const params_oauth = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json'
         }
     };
-    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth,{timeout: 300000});
+    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth);
     if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)){
         console.log("Oauth Fail!!");
         return response_oauth

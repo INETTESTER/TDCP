@@ -6,8 +6,8 @@
 ##########################################################################
                      projectname="oauth_create_scb" #ตั้งชื่อ projhttpsect ให้เหมือนกัน
                      google_sheet="https://docs.google.com/spreadsheets/d/13ZqmW82FnQj_uY-9VjUCPNvBMFEZJcodK1AmRn_euW0/edit?gid=180143788#gid=180143788" 
-                     id="25"                 #เปลี่ยน id ทุกครั้งที่ยิง
-                     user="10000";            #จำนวนผู้ใช้งาน
+                     id="26"                 #เปลี่ยน id ทุกครั้งที่ยิง
+                     user="12000";            #จำนวนผู้ใช้งาน
                      durationx="60";         #วินาที
                      scenario="3"           #scenario="1" ยิงเเบบกำหนด request (duration ได้แค่ 1 วินาที)
                      cid="113"                 #scenario="2" ยิงเเบบกำหนด VUs  (กำหนดว่า user x คน ใช้ระบบ x วินาที)
