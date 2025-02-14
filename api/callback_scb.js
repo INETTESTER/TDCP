@@ -41,13 +41,14 @@ export  function callback_scb(scenario) {
     });
 
     const params = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json',
             'Cookie': '__cf_bm=OB.Eb3YiVk4qS8fCnJpg4vIA6Tn_8oZLo3jQvwxCz9s-1711509545-1.0.1.1-YVef23500PEE1PxfAJHO7Ke_mV7z1jJksp58_U_SbozddU04PxHw_aVgc55uP4qNBzHoeck43EnSAWa_KJkv9g; __cfruid=b569a32fdc9e1d3c4d318e9ea9540b4c361bf28e-1711509545'
         }
     };
 
-    const response = http.post(url, payload, params,{timeout: 300000});
+    const response = http.post(url, payload, params);
 
     //console.log(response.body);
     return response

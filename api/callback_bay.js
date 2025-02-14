@@ -1,8 +1,8 @@
 import http from 'k6/http';
 
-export  function callback_bay() {
-  let url_qr_callback = 'https://new-ops-clone.inet.co.th/bay/api/v1/payment/qr/callback';
-  let payload_qr_callback = JSON.stringify({
+export function callback_bay() {
+  const url_qr_callback = 'https://new-ops-clone.inet.co.th/bay/api/v1/payment/qr/callback';
+  const payload_qr_callback = JSON.stringify({
     trxId: '2412201025367662',
     trxStatus: '1',
     amount: '1',
@@ -14,6 +14,13 @@ export  function callback_bay() {
     channel: '4',
   });
 
-  let res_qr_callback = http.post(url_qr_callback, payload_qr_callback, { headers: { 'Content-Type': 'application/json' } },{timeout: 300000});
-  return res_qr_callback
+  const params_qr_callback = {
+    timeout: "300s", // หรือ "300000ms"
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  const res_qr_callback = http.post(url_qr_callback, payload_qr_callback, params_qr_callback);
+  return res_qr_callback;
 }

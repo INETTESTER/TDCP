@@ -8,12 +8,13 @@ export function oauth_cimb() {
         orderId: "IMAGE-TEST-QR-CIMB"+orderId
     });
     const params = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json'
         }
     };
 
-    const response = http.post(url, payload, params,{timeout: 300000});
+    const response = http.post(url, payload, params);
     //console.log(response.body);
     return response
 }

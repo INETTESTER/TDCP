@@ -116,30 +116,33 @@ export function oauth_create_qr_verify_callback_cimb() {
 
     //Step 4 : Verify
     const url_verify = 'https://new-ops-clone.inet.co.th/cimb/api/payment/cimb/verifydata/v1';
-    const headers_verify = {
-    'True-Client-Ip': '184.22.188.182',
-    'Content-Type': 'application/json',
-    'Authorization': 'Basic Y2ltYnByb21wdHBheTpDMU04b25wcmQ=', // แทนที่ด้วย Token จริง
-    };
     const payload_verify = JSON.stringify({
-     header: {
-         requester_system: 'SIBS',
-        request_reference_no: 'BP202004021536201234543231',
-        transaction_datetime: '2025-02-10T09:33:00.000+07:00',
-    },
-    data: {
-      biller_id: '090554900146400',
-      reference1: ''+ref1,
-      reference2: ''+ref2,
-      reference3: '66',
-      transaction_id: 'REFLOADTEST250210001',
-      transaction_datetime: '2025-02-10T09:33:00.000+07:00',
-      amount_paid: 1,
-      sender_account_name: 'AAAA',
-    },
-  });
-
-  const response_verify = http.post(url_verify, payload_verify, headers_verify,{timeout: 300000});
+        header: {
+            requester_system: "SIBS",
+            request_reference_no: "BP202004021536201234543231",
+            transaction_datetime: "2025-02-10T09:33:00.000+07:00"
+        },
+        data: {
+            biller_id: "090554900146400",
+            reference1: ""+ref1,
+            reference2: ""+ref2,
+            reference3: "66",
+            transaction_id: "REFLOADTEST250210001",
+            transaction_datetime: "2025-02-10T09:33:00.000+07:00",
+            amount_paid: 1,
+            sender_account_name: "AAAA"
+        }
+    });
+    
+    const params_verify = {
+        timeout: "300s", // หรือ "300000ms"
+        headers: {
+            "True-Client-Ip": "184.22.188.182",
+            "Content-Type": "application/json",
+            "Authorization": "Basic Y2ltYnByb21wdHBheTpDMU04b25wcmQ="
+        }
+    };
+  const response_verify = http.post(url_verify, payload_verify, params_verify);
   if (!response_verify || response_verify.error_code || (response_verify.status !== 200 && response_verify.status !== 201)){
       console.log("Verify Fail!!");
       return response_verify

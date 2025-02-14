@@ -9,11 +9,12 @@ export function oauth_create_inquirypertxn_scb() {
          orderId: "LOADTEST-241113002"+orderId
     });
     const params_oauth = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json'
         }
     };
-    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth,{timeout: 300000});
+    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth);
     if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)){
         return response_oauth
     }
@@ -48,13 +49,14 @@ export function oauth_create_inquirypertxn_scb() {
         payType: "QR"
     });
     const params_transaction = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer '+token_oauth
         }
     };
 
-    const response_transaction = http.post(url_transaction, payload_transaction, params_transaction,{timeout: 300000});
+    const response_transaction = http.post(url_transaction, payload_transaction, params_transaction);
     if (!response_transaction || response_transaction.error_code || (response_transaction.status !== 200 && response_transaction.status !== 201)){
         return response_transaction
     }
@@ -83,12 +85,13 @@ const payload = JSON.stringify({
 });
 
 const params = {
+    timeout: "300s", // หรือ "300000ms"
     headers: {
         'Content-Type': 'application/json'
     }
 };
 
-const response = http.post(url, payload, params,{timeout: 300000});
+const response = http.post(url, payload, params);
 
 //console.log(response.body);
 return response

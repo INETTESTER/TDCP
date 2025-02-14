@@ -9,11 +9,12 @@ export function oauth_create_qr_callback_bay() {
          orderId: "LOADTEST-241113002"+orderId
     });
     const params_oauth = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json'
         }
     };
-    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth,{timeout: 300000});
+    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth);
     if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)){
         console.log("Oauth Fail");
         return response_oauth
@@ -49,13 +50,14 @@ export function oauth_create_qr_callback_bay() {
         payType: "QR"
     });
     const params_transaction = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer '+token_oauth
         }
     };
 
-    const response_transaction = http.post(url_transaction, payload_transaction, params_transaction,{timeout: 300000});
+    const response_transaction = http.post(url_transaction, payload_transaction, params_transaction);
     if (!response_transaction || response_transaction.error_code || (response_transaction.status !== 200 && response_transaction.status !== 201)){
         console.log("Create Fail");
         return response_transaction
@@ -86,11 +88,12 @@ export function oauth_create_qr_callback_bay() {
     });
 
     const params_qr = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json',
         }
     };
-    const response_qr = http.post(url_qr, payload_qr, params_qr,{timeout: 300000});
+    const response_qr = http.post(url_qr, payload_qr, params_qr);
     if (!response_qr || response_qr.error_code || (response_qr.status !== 200 && response_qr.status !== 201)){
         console.log("QR Fail");
         return response_qr
@@ -125,12 +128,13 @@ export function oauth_create_qr_callback_bay() {
       channel: '4',
     });
     const params_qr_callback = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json',
         }
     };
   
-    const res_qr_callback = http.post(url_qr_callback, payload_qr_callback, params_qr_callback,{timeout: 300000});
+    const res_qr_callback = http.post(url_qr_callback, payload_qr_callback, params_qr_callback);
     if (!res_qr_callback || res_qr_callback.error_code || (res_qr_callback.status !== 200 && res_qr_callback.status !== 201)){
         console.log("Callback Fail");
         return res_qr_callback

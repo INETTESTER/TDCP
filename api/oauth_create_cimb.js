@@ -10,11 +10,12 @@ export function oauth_create_cimb() {
         orderId: "LOADTEST-241113001"+orderId
     });
     const params_oauth = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json'
         }
     };
-    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth,{timeout: 300000});
+    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth);
     if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)){
         return response_oauth
     }
@@ -49,13 +50,14 @@ export function oauth_create_cimb() {
         payType: "QR"
     });
     const params_transaction = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer '+token_oauth
         }
     };
 
-    const response_transaction = http.post(url_transaction, payload_transaction, params_transaction,{timeout: 300000});
+    const response_transaction = http.post(url_transaction, payload_transaction, params_transaction);
     
     return response_transaction
 }
