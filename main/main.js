@@ -172,8 +172,8 @@ else if(scenariox==3){
     scenarios: {
       example_scenario: {
         executor: 'constant-arrival-rate',
-        rate: vusx*2,
-        timeUnit: '2s',
+        rate: vusx*20,
+        timeUnit: '20s',
         preAllocatedVUs: user*3,
         maxVUs: user * 3, // ปรับ maxVUs ให้รองรับการโหลดเพิ่ม
         duration: durationx+'s', 
