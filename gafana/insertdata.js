@@ -62,7 +62,13 @@ export default function() {
       }));
   
       filteredPasses.forEach((item) => {
-        console.log(`${item.status}: ${item.passes}`);
+        //console.log(`${item.status}: ${item.passes}`);
+        if(item.status==="200 OK"||item.status==="201 Created"){
+          console.log(`✔️ ${item.status}: ${item.passes}`);
+        }
+        else{
+          console.log(`❌ ${item.status}: ${item.passes}`);
+        }
       });
       if (error!=0) {
         if (unknown!=0) {
