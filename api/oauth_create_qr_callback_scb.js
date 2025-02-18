@@ -129,7 +129,7 @@ export function oauth_create_qr_callback_scb(scenario) {
     const amount = data3[scenario.iterationInTest]
     const billPaymentRef3 = `${__VU}${__ITER}2`;
     const url_callback = 'https://new-ops-clone.inet.co.th/scb/api/v1/payment/qr-callback';
-
+    //console.log(payment_transaction_no);
     const payload_callback = JSON.stringify({
         amount: ""+amount,
         billPaymentRef1: ""+payment_transaction_no,
