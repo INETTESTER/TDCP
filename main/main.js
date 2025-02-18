@@ -32,10 +32,10 @@ export default function () {    //เรียกใช้ API ใน export def
   // response = oaut_scb()
   // response = callback_scb(scenario)
   // response = oauth_create_scb(cid)
-   response = oauth_create_qr_scb()
+  // response = oauth_create_qr_scb()
   // response = oauth_create_inquirypertxn_scb()
   // response = oauth_create_inquirydate_scb()
-  // response = oauth_create_qr_callback_scb(scenario)
+   response = oauth_create_qr_callback_scb(scenario)
 //=======================CIMB=================================
   // response = oauth_cimb()
   // response = oauth_create_qr_cimb()
@@ -172,10 +172,10 @@ else if(scenariox==3){
     scenarios: {
       example_scenario: {
         executor: 'constant-arrival-rate',
-        rate: vusx,
-        timeUnit: '1s',
-        preAllocatedVUs: user,
-        maxVUs: user * 2, // ปรับ maxVUs ให้รองรับการโหลดเพิ่ม
+        rate: vusx*2,
+        timeUnit: '2s',
+        preAllocatedVUs: user*3,
+        maxVUs: user * 3, // ปรับ maxVUs ให้รองรับการโหลดเพิ่ม
         duration: durationx+'s', 
         gracefulStop: '120s',
       },

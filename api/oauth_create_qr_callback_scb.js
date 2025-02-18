@@ -2,13 +2,13 @@ import http from 'k6/http';
 import { check } from 'k6';
 import { SharedArray } from 'k6/data';
 const data = new SharedArray('payment_transaction_no', function () {
-    return JSON.parse(open('../file/7.json')).payment_transaction_no;
+    return JSON.parse(open('../file/1.json')).payment_transaction_no;
 });
 const data2 = new SharedArray('merchant_id', function () {
-    return JSON.parse(open('../file/7.json')).merchant_id;
+    return JSON.parse(open('../file/1.json')).merchant_id;
 });
 const data3 = new SharedArray('amount', function () {
-    return JSON.parse(open('../file/7.json')).amount;
+    return JSON.parse(open('../file/1.json')).amount;
 });
 export function oauth_create_qr_callback_scb(scenario) {
     //Step 1 : OAUTH
