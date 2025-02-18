@@ -7,12 +7,12 @@ import { oauth_create_qr_verify_cimb } from '../api/oauth_create_qr_verify_cimb.
 import { oaut_scb } from '../api/oauth_scb.js';
 import { inquirypertxn } from '../api/inquirypertxn.js';
 import { inquirydate } from '../api/inquirydate.js';
-import { callback_scb } from '../api/callback_scb.js';
+//import { callback_scb } from '../api/callback_scb.js';
 import { oauth_create_scb } from '../api/oauth_create_scb.js';
 import { oauth_cimb } from '../api/oauth_cimb.js';
 import { oauth_create_qr_cimb } from '../api/oauth_create_qr_cimb.js';
 import { oauth_create_qr_scb } from '../api/oauth_create_qr_scb.js';
-import { oauth_create_qr_verify_callback_cimb } from '../api/oauth_create_qr_verify_callback_cimb.js';
+//import { oauth_create_qr_verify_callback_cimb } from '../api/oauth_create_qr_verify_callback_cimb.js';
 import { oauth_create_qr_callback_scb } from '../api/oauth_create_qr_callback_scb.js';
 import { oauth_bay } from '../api/oauth_bay.js';
 import { oauth_create_bay } from '../api/oauth_create_bay.js';
