@@ -31,11 +31,11 @@ export default function () {    //เรียกใช้ API ใน export def
 //=======================SCB==================================
   // response = oaut_scb()
   // response = callback_scb(scenario)
-   response = oauth_create_scb(cid)
+  // response = oauth_create_scb(cid)
   // response = oauth_create_qr_scb()
   // response = oauth_create_inquirypertxn_scb()
   // response = oauth_create_inquirydate_scb()
-  // response = oauth_create_qr_callback_scb(scenario)
+   response = oauth_create_qr_callback_scb(scenario)
 //=======================CIMB=================================
   // response = oauth_cimb()
   // response = oauth_create_qr_cimb()
