@@ -4,9 +4,9 @@ export function oauth_create_qr_scb() {
     //Step 1 : OAUTH
     const url_oauth = 'https://new-ops-clone.inet.co.th/oauth/api/v1/oauth-token';
     const orderId = `25${__VU}${__ITER}2`;
-    const payload_oauth = JSON.stringify({  
-         key: "T1kbWWoJs68MZ+CZAO2NnitijJviGOhmwpHABEHyMTDt9cckRkbis7ssQOHfRyVmc8rKE8iORfW2WnRvCvS6k0Yj4U4uP4mbiu1K2utFeOBJZmX8CdkDt2nHWnDdbQN0UdCwPYhuqr8HW6O/nyuhqKggh0g77DVZvGfZnDIaPRI=",
-         orderId: "LOADTEST-241113002"+orderId
+    const payload_oauth = JSON.stringify({
+        key: "T1kbWWoJs68MZ+CZAO2NnitijJviGOhmwpHABEHyMTDt9cckRkbis7ssQOHfRyVmc8rKE8iORfW2WnRvCvS6k0Yj4U4uP4mbiu1K2utFeOBJZmX8CdkDt2nHWnDdbQN0UdCwPYhuqr8HW6O/nyuhqKggh0g77DVZvGfZnDIaPRI=",
+        orderId: "LOADTEST-241113002" + orderId
     });
     const params_oauth = {
         timeout: "300s", // หรือ "300000ms"
@@ -15,7 +15,7 @@ export function oauth_create_qr_scb() {
         }
     };
     const response_oauth = http.post(url_oauth, payload_oauth, params_oauth);
-    if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)){
+    if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)) {
         console.log("Oauth Fail");
         return response_oauth
     }
@@ -34,31 +34,31 @@ export function oauth_create_qr_scb() {
         '502 Bad Gateway': (r) => r.status === 502,
         '503 Service Unavailable': (r) => r.status === 503,
         '504 Gateway Timeout': (r) => r.status === 504,
-        });
- 
-//============================================================================================================================================================================================
+    });
+
+    //============================================================================================================================================================================================
 
     //Step 2 : Create Transactions
     const url_transaction = 'https://new-ops-clone.inet.co.th/api/v1/payment-transactions/access-token';
-    const payload_transaction = JSON.stringify({ 
+    const payload_transaction = JSON.stringify({
         key: "T1kbWWoJs68MZ+CZAO2NnitijJviGOhmwpHABEHyMTDt9cckRkbis7ssQOHfRyVmc8rKE8iORfW2WnRvCvS6k0Yj4U4uP4mbiu1K2utFeOBJZmX8CdkDt2nHWnDdbQN0UdCwPYhuqr8HW6O/nyuhqKggh0g77DVZvGfZnDIaPRI=",
-        orderId: "LOADTEST-241113002"+orderId,
+        orderId: "LOADTEST-241113002" + orderId,
         orderDesc: "LOAD TEST SCB",
         amount: 1,
         apUrl: "https://www.google.co.th",
-        regRef: "", 
+        regRef: "",
         payType: "QR"
     });
     const params_transaction = {
         timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer '+token_oauth
+            'Authorization': 'Bearer ' + token_oauth
         }
     };
 
     const response_transaction = http.post(url_transaction, payload_transaction, params_transaction);
-    if (!response_transaction || response_transaction.error_code || (response_transaction.status !== 200 && response_transaction.status !== 201)){
+    if (!response_transaction || response_transaction.error_code || (response_transaction.status !== 200 && response_transaction.status !== 201)) {
         console.log("Create Fail");
         return response_transaction
     }
@@ -77,14 +77,14 @@ export function oauth_create_qr_scb() {
         '502 Bad Gateway': (r) => r.status === 502,
         '503 Service Unavailable': (r) => r.status === 503,
         '504 Gateway Timeout': (r) => r.status === 504,
-        });
-    
-//===============================================================================================================================================================================================
+    });
+
+    //===============================================================================================================================================================================================
 
     //Step 3 : QR Code
     const url_qr = 'https://new-ops-clone.inet.co.th/scb/api/v1/payment/qr';
     const payload_qr = JSON.stringify({
-        accessToken: ''+token_transaction
+        accessToken: '' + token_transaction
     });
 
     const params_qr = {
@@ -94,10 +94,10 @@ export function oauth_create_qr_scb() {
         }
     };
     const response_qr = http.post(url_qr, payload_qr, params_qr);
-    if (!response_qr || response_qr.error_code || (response_qr.status !== 200 && response_qr.status !== 201)){
+    if (!response_qr || response_qr.error_code || (response_qr.status !== 200 && response_qr.status !== 201)) {
         console.log("Create Fail");
         return response_qr
     }
-   
+
     return response_qr
 }

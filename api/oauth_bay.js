@@ -2,7 +2,7 @@ import http from 'k6/http';
 
 export function oauth_bay() {
   const url_token = 'https://new-ops-clone.inet.co.th/oauth/api/v1/oauth-token';
-  
+
   const headers_token = {
     'Content-Type': 'application/json',
   };

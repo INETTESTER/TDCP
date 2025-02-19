@@ -5,17 +5,17 @@ export function oauth_create_qr_verify_callback_cimb() {
     //Step 1 : OAUTH
     const url_oauth = 'https://new-ops-clone.inet.co.th/oauth/api/v1/oauth-token';
     const orderId = `1${__VU}${__ITER}1`;
-    const payload_oauth = JSON.stringify({  
+    const payload_oauth = JSON.stringify({
         key: "WQMfmEUDuK7RZtyY0QG/U3sRXQdDtLw591j2cajzZGzj/8PO9LlmGLgpPanCPGQRuFVkwWliuhMmJikWwxj7TuE4iZ+Rkf9lnBMgZnqsPlG6WOXPP3a4p1TyuGrq1QR+UraKNlGH+jhxZ/QOmHyFSuIoyjXR1W4TTOL7X/tJkZk=",
-        orderId: "IMAGE-TEST-QR-CIMB"+orderId
+        orderId: "IMAGE-TEST-QR-CIMB" + orderId
     });
     const params_oauth = {
         headers: {
             'Content-Type': 'application/json'
         }
     };
-    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth,{timeout: 300000});
-    if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)){
+    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth, { timeout: 300000 });
+    if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)) {
         console.log("Oauth Fail!!");
         return response_oauth
     }
@@ -34,30 +34,30 @@ export function oauth_create_qr_verify_callback_cimb() {
         '502 Bad Gateway': (r) => r.status === 502,
         '503 Service Unavailable': (r) => r.status === 503,
         '504 Gateway Timeout': (r) => r.status === 504,
-        });
- 
-//============================================================================================================================================================================================
+    });
+
+    //============================================================================================================================================================================================
 
     //Step 2 : Create Transactions
     const url_transaction = 'https://new-ops-clone.inet.co.th/api/v1/payment-transactions/access-token';
-    const payload_transaction = JSON.stringify({ 
+    const payload_transaction = JSON.stringify({
         key: "WQMfmEUDuK7RZtyY0QG/U3sRXQdDtLw591j2cajzZGzj/8PO9LlmGLgpPanCPGQRuFVkwWliuhMmJikWwxj7TuE4iZ+Rkf9lnBMgZnqsPlG6WOXPP3a4p1TyuGrq1QR+UraKNlGH+jhxZ/QOmHyFSuIoyjXR1W4TTOL7X/tJkZk=",
-        orderId: "IMAGE-TEST-QR-CIMB"+orderId,
+        orderId: "IMAGE-TEST-QR-CIMB" + orderId,
         orderDesc: "LOAD TEST CIMB",
         amount: 1,
         apUrl: "https://www.google.co.th",
-        regRef: "", 
+        regRef: "",
         payType: "QR"
     });
     const params_transaction = {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer '+token_oauth
+            'Authorization': 'Bearer ' + token_oauth
         }
     };
 
-    const response_transaction = http.post(url_transaction, payload_transaction, params_transaction,{timeout: 300000});
-    if (!response_transaction || response_transaction.error_code || (response_transaction.status !== 200 && response_transaction.status !== 201)){
+    const response_transaction = http.post(url_transaction, payload_transaction, params_transaction, { timeout: 300000 });
+    if (!response_transaction || response_transaction.error_code || (response_transaction.status !== 200 && response_transaction.status !== 201)) {
         console.log("Create Fail!!");
         return response_transaction
     }
@@ -78,14 +78,14 @@ export function oauth_create_qr_verify_callback_cimb() {
         '502 Bad Gateway': (r) => r.status === 502,
         '503 Service Unavailable': (r) => r.status === 503,
         '504 Gateway Timeout': (r) => r.status === 504,
-        });
-    
-//===============================================================================================================================================================================================
-    
+    });
+
+    //===============================================================================================================================================================================================
+
     //Step 3 : QR Code
     const url_qr = 'https://new-ops-clone.inet.co.th/cimb/api/v1/qr-code/cimb';
     const payload_qr = JSON.stringify({
-        accessToken: ''+token_transaction
+        accessToken: '' + token_transaction
     });
 
     const params_qr = {
@@ -94,8 +94,8 @@ export function oauth_create_qr_verify_callback_cimb() {
             'Authorization': 'Basic Y2ltYnByb21wdHBheTpDMU04Zzt2aU49eWpvVTRU'
         }
     };
-    const response_qr = http.post(url_qr, payload_qr, params_qr,{timeout: 300000});
-    if (!response_qr || response_qr.error_code || (response_qr.status !== 200 && response_qr.status !== 201)){
+    const response_qr = http.post(url_qr, payload_qr, params_qr, { timeout: 300000 });
+    if (!response_qr || response_qr.error_code || (response_qr.status !== 200 && response_qr.status !== 201)) {
         console.log("QR Code Fail!!");
         return response_qr
     }
@@ -112,7 +112,7 @@ export function oauth_create_qr_verify_callback_cimb() {
         '502 Bad Gateway': (r) => r.status === 502,
         '503 Service Unavailable': (r) => r.status === 503,
         '504 Gateway Timeout': (r) => r.status === 504,
-        });
+    });
 
     //Step 4 : Verify
     const url_verify = 'https://new-ops-clone.inet.co.th/cimb/api/payment/cimb/verifydata/v1';
@@ -124,8 +124,8 @@ export function oauth_create_qr_verify_callback_cimb() {
         },
         data: {
             biller_id: "090554900146400",
-            reference1: ""+ref1,
-            reference2: ""+ref2,
+            reference1: "" + ref1,
+            reference2: "" + ref2,
             reference3: "66",
             transaction_id: "REFLOADTEST250210001",
             transaction_datetime: "2025-02-10T09:33:00.000+07:00",
@@ -133,7 +133,7 @@ export function oauth_create_qr_verify_callback_cimb() {
             sender_account_name: "AAAA"
         }
     });
-    
+
     const params_verify = {
         timeout: "300s", // หรือ "300000ms"
         headers: {
@@ -142,55 +142,55 @@ export function oauth_create_qr_verify_callback_cimb() {
             "Authorization": "Basic Y2ltYnByb21wdHBheTpDMU04b25wcmQ="
         }
     };
-  const response_verify = http.post(url_verify, payload_verify, params_verify);
-  if (!response_verify || response_verify.error_code || (response_verify.status !== 200 && response_verify.status !== 201)){
-      console.log("Verify Fail!!");
-      return response_verify
-  }
-  check(response_verify, {
-    '200 OK': (r) => r.status === 200,
-    '201 Created': (r) => r.status === 201,
-    '204 No Content': (r) => r.status === 204,
-    '400 Bad Request': (r) => r.status === 400,
-    '401 Unauthorized': (r) => r.status === 401,
-    '403 Forbidden': (r) => r.status === 403,
-    '404 Not Found': (r) => r.status === 404,
-    '429 Too Many Requests': (r) => r.status === 429,
-    '500 Internal Server Error': (r) => r.status === 500,
-    '502 Bad Gateway': (r) => r.status === 502,
-    '503 Service Unavailable': (r) => r.status === 503,
-    '504 Gateway Timeout': (r) => r.status === 504,
+    const response_verify = http.post(url_verify, payload_verify, params_verify);
+    if (!response_verify || response_verify.error_code || (response_verify.status !== 200 && response_verify.status !== 201)) {
+        console.log("Verify Fail!!");
+        return response_verify
+    }
+    check(response_verify, {
+        '200 OK': (r) => r.status === 200,
+        '201 Created': (r) => r.status === 201,
+        '204 No Content': (r) => r.status === 204,
+        '400 Bad Request': (r) => r.status === 400,
+        '401 Unauthorized': (r) => r.status === 401,
+        '403 Forbidden': (r) => r.status === 403,
+        '404 Not Found': (r) => r.status === 404,
+        '429 Too Many Requests': (r) => r.status === 429,
+        '500 Internal Server Error': (r) => r.status === 500,
+        '502 Bad Gateway': (r) => r.status === 502,
+        '503 Service Unavailable': (r) => r.status === 503,
+        '504 Gateway Timeout': (r) => r.status === 504,
     });
 
     //Step 5: Callback
     const url_callback = 'https://new-ops-clone.inet.co.th/cimb/api/payment/cimb/notification/v1';
-  const headers_callback = {
-    'True-Client-Ip': '184.22.188.182',
-    'Content-Type': 'application/json',
-    'Authorization': 'Basic Y2ltYnByb21wdHBheTpDMU04b25wcmQ=', // แทนที่ด้วย Token จริง
-  };
-  const payload_callback = JSON.stringify({
-    header: {
-      requester_system: 'SIBS',
-      request_reference_no: 'BP202004021536201234543231',
-      transaction_datetime: '2024-04-23T09:33:10.000+07:00',
-    },
-    data: {
-      biller_id: '090554900146400',
-      reference1: ''+ref1, 
-      reference2: ''+ref2, 
-      reference3: '66',
-      biller_display_name: '',
-      result: 'S',
-      transaction_id: 'REFLOADTEST240426001',
-      transaction_datetime: '2024-04-23T09:33:10.000+07:00',
-      amount_paid: 1, 
-      sender_account_name: 'AAAA',
-    },
-  });
+    const headers_callback = {
+        'True-Client-Ip': '184.22.188.182',
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic Y2ltYnByb21wdHBheTpDMU04b25wcmQ=', // แทนที่ด้วย Token จริง
+    };
+    const payload_callback = JSON.stringify({
+        header: {
+            requester_system: 'SIBS',
+            request_reference_no: 'BP202004021536201234543231',
+            transaction_datetime: '2024-04-23T09:33:10.000+07:00',
+        },
+        data: {
+            biller_id: '090554900146400',
+            reference1: '' + ref1,
+            reference2: '' + ref2,
+            reference3: '66',
+            biller_display_name: '',
+            result: 'S',
+            transaction_id: 'REFLOADTEST240426001',
+            transaction_datetime: '2024-04-23T09:33:10.000+07:00',
+            amount_paid: 1,
+            sender_account_name: 'AAAA',
+        },
+    });
 
-    const response_callback = http.post(url_callback, payload_callback, headers_callback,{timeout: 300000});
-    if (!response_callback || response_callback.error_code || (response_callback.status !== 200 && response_callback.status !== 201)){
+    const response_callback = http.post(url_callback, payload_callback, headers_callback, { timeout: 300000 });
+    if (!response_callback || response_callback.error_code || (response_callback.status !== 200 && response_callback.status !== 201)) {
         console.log("Callback Fail!!");
         return response_callback
     }

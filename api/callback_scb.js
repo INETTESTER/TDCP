@@ -11,7 +11,7 @@ const data3 = new SharedArray('amount', function () {
     return JSON.parse(open('../file/1.json')).amount;
 });
 
-export  function callback_scb(scenario) {
+export function callback_scb(scenario) {
     const payment_transaction_no = data[scenario.iterationInTest];
     const merchant_id = data2[scenario.iterationInTest];
     const amount = data3[scenario.iterationInTest]
@@ -19,10 +19,10 @@ export  function callback_scb(scenario) {
     const url = 'https://new-ops-clone.inet.co.th/scb/api/v1/payment/qr-callback';
 
     const payload = JSON.stringify({
-        amount: ""+amount,
-        billPaymentRef1: ""+payment_transaction_no,
-        billPaymentRef2: ""+merchant_id,
-        billPaymentRef3: "NJBP"+billPaymentRef3,
+        amount: "" + amount,
+        billPaymentRef1: "" + payment_transaction_no,
+        billPaymentRef2: "" + merchant_id,
+        billPaymentRef3: "NJBP" + billPaymentRef3,
         channelCode: "PMH",
         currencyCode: "764",
         payeeAccountNumber: "0987654321",
@@ -36,7 +36,7 @@ export  function callback_scb(scenario) {
         receivingBankCode: "014",
         sendingBankCode: "014",
         transactionDateandTime: "2024-04-04T11:11:39+07:00",
-        transactionId: "LOADTEST"+billPaymentRef3,
+        transactionId: "LOADTEST" + billPaymentRef3,
         transactionType: "Domestic Transfers"
     });
 

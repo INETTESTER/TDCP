@@ -5,7 +5,7 @@ export function oaut_scb() {
     const orderId = `2${__VU}${__ITER}2`;
     const payload = JSON.stringify({  //SCB
         key: "T1kbWWoJs68MZ+CZAO2NnitijJviGOhmwpHABEHyMTDt9cckRkbis7ssQOHfRyVmc8rKE8iORfW2WnRvCvS6k0Yj4U4uP4mbiu1K2utFeOBJZmX8CdkDt2nHWnDdbQN0UdCwPYhuqr8HW6O/nyuhqKggh0g77DVZvGfZnDIaPRI=",
-        orderId: "IMAGE-TEST-QR-SCB"+orderId
+        orderId: "IMAGE-TEST-QR-SCB" + orderId
     });
     const params = {
         timeout: "300s", // หรือ "300000ms"

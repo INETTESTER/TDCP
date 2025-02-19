@@ -4,9 +4,9 @@ export function oauth_create_inquirypertxn_scb() {
     //Step 1 : OAUTH
     const url_oauth = 'https://new-ops-clone.inet.co.th/oauth/api/v1/oauth-token';
     const orderId = `25${__VU}${__ITER}3`;
-    const payload_oauth = JSON.stringify({  
-         key: "T1kbWWoJs68MZ+CZAO2NnitijJviGOhmwpHABEHyMTDt9cckRkbis7ssQOHfRyVmc8rKE8iORfW2WnRvCvS6k0Yj4U4uP4mbiu1K2utFeOBJZmX8CdkDt2nHWnDdbQN0UdCwPYhuqr8HW6O/nyuhqKggh0g77DVZvGfZnDIaPRI=",
-         orderId: "LOADTEST-241113002"+orderId
+    const payload_oauth = JSON.stringify({
+        key: "T1kbWWoJs68MZ+CZAO2NnitijJviGOhmwpHABEHyMTDt9cckRkbis7ssQOHfRyVmc8rKE8iORfW2WnRvCvS6k0Yj4U4uP4mbiu1K2utFeOBJZmX8CdkDt2nHWnDdbQN0UdCwPYhuqr8HW6O/nyuhqKggh0g77DVZvGfZnDIaPRI=",
+        orderId: "LOADTEST-241113002" + orderId
     });
     const params_oauth = {
         timeout: "300s", // หรือ "300000ms"
@@ -15,7 +15,7 @@ export function oauth_create_inquirypertxn_scb() {
         }
     };
     const response_oauth = http.post(url_oauth, payload_oauth, params_oauth);
-    if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)){
+    if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)) {
         return response_oauth
     }
     const responseBody_oauth = JSON.parse(response_oauth.body);
@@ -33,31 +33,31 @@ export function oauth_create_inquirypertxn_scb() {
         '502 Bad Gateway': (r) => r.status === 502,
         '503 Service Unavailable': (r) => r.status === 503,
         '504 Gateway Timeout': (r) => r.status === 504,
-        });
- 
-//============================================================================================================================================================================================
+    });
+
+    //============================================================================================================================================================================================
 
     //Step 2 : Create Transactions
     const url_transaction = 'https://new-ops-clone.inet.co.th/api/v1/payment-transactions/access-token';
-    const payload_transaction = JSON.stringify({ 
+    const payload_transaction = JSON.stringify({
         key: "T1kbWWoJs68MZ+CZAO2NnitijJviGOhmwpHABEHyMTDt9cckRkbis7ssQOHfRyVmc8rKE8iORfW2WnRvCvS6k0Yj4U4uP4mbiu1K2utFeOBJZmX8CdkDt2nHWnDdbQN0UdCwPYhuqr8HW6O/nyuhqKggh0g77DVZvGfZnDIaPRI=",
-        orderId: "LOADTEST-241113002"+orderId,
+        orderId: "LOADTEST-241113002" + orderId,
         orderDesc: "LOAD TEST SCB",
         amount: 1,
         apUrl: "https://www.google.co.th",
-        regRef: "", 
+        regRef: "",
         payType: "QR"
     });
     const params_transaction = {
         timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer '+token_oauth
+            'Authorization': 'Bearer ' + token_oauth
         }
     };
 
     const response_transaction = http.post(url_transaction, payload_transaction, params_transaction);
-    if (!response_transaction || response_transaction.error_code || (response_transaction.status !== 200 && response_transaction.status !== 201)){
+    if (!response_transaction || response_transaction.error_code || (response_transaction.status !== 200 && response_transaction.status !== 201)) {
         return response_transaction
     }
     check(response_transaction, {
@@ -73,26 +73,26 @@ export function oauth_create_inquirypertxn_scb() {
         '502 Bad Gateway': (r) => r.status === 502,
         '503 Service Unavailable': (r) => r.status === 503,
         '504 Gateway Timeout': (r) => r.status === 504,
-        });
-    
-//===============================================================================================================================================================================================
+    });
 
-const url = 'https://new-ops-clone.inet.co.th/portal/api/v1/payment-transactions/inquiry-txn';
-    
-const payload = JSON.stringify({
-    key: "T1kbWWoJs68MZ+CZAO2NnitijJviGOhmwpHABEHyMTDt9cckRkbis7ssQOHfRyVmc8rKE8iORfW2WnRvCvS6k0Yj4U4uP4mbiu1K2utFeOBJZmX8CdkDt2nHWnDdbQN0UdCwPYhuqr8HW6O/nyuhqKggh0g77DVZvGfZnDIaPRI=",
-    payment_transaction_no: "P24093012105942"
-});
+    //===============================================================================================================================================================================================
 
-const params = {
-    timeout: "300s", // หรือ "300000ms"
-    headers: {
-        'Content-Type': 'application/json'
-    }
-};
+    const url = 'https://new-ops-clone.inet.co.th/portal/api/v1/payment-transactions/inquiry-txn';
 
-const response = http.post(url, payload, params);
+    const payload = JSON.stringify({
+        key: "T1kbWWoJs68MZ+CZAO2NnitijJviGOhmwpHABEHyMTDt9cckRkbis7ssQOHfRyVmc8rKE8iORfW2WnRvCvS6k0Yj4U4uP4mbiu1K2utFeOBJZmX8CdkDt2nHWnDdbQN0UdCwPYhuqr8HW6O/nyuhqKggh0g77DVZvGfZnDIaPRI=",
+        payment_transaction_no: "P24093012105942"
+    });
 
-//console.log(response.body);
-return response
+    const params = {
+        timeout: "300s", // หรือ "300000ms"
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    const response = http.post(url, payload, params);
+
+    //console.log(response.body);
+    return response
 }
