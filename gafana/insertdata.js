@@ -72,7 +72,7 @@ export default function () {
     }
   });
   if (error != 0) {
-    if (unknown != 0) {
+    if (finalunknown != 0) {
       console.log("❓ Unknown errors : " + finalunknown);
     }
     console.log("⭐ Number of errors : " + error);
