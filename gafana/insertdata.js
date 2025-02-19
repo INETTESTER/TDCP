@@ -65,7 +65,7 @@ export default function() {
       filteredPasses.forEach((item) => {
         //console.log(`${item.status}: ${item.passes}`);
         if(item.status==="200 OK"||item.status==="201 Created"){
-          console.log(`✔️ ${item.status}: ${item.passes}`);
+          console.log(`✅ ${item.status}: ${item.passes}`);
         }
         else{
           console.log(`❌ ${item.status}: ${item.passes}`);
@@ -73,9 +73,9 @@ export default function() {
       });
       if (error!=0) {
         if (unknown!=0) {
-          console.log("❌ Unknown errors : "+finalunknown);
+          console.log("❓ Unknown errors : "+finalunknown);
         }
-        console.log("❌ Number of errors : "+error);
+        console.log("⭐ Number of errors : "+error);
       }
 
 
