@@ -13,7 +13,7 @@ IP_ADDRESS=$(ipconfig | findstr "IPv4" | sed -E 's/.*: ([0-9]+\.[0-9]+\.[0-9]+\.
                      scenario="3"           #scenario="1" ยิงเเบบกำหนด request (duration ได้แค่ 1 วินาที)
                      cid="112"              #scenario="2" ยิงเเบบกำหนด VUs  (กำหนดว่า user x คน ใช้ระบบ x วินาที)
                                             #scenario="3" ยิงเเบบกำหนด request แต่ไม่แม่นยำ (duration กี่วินาทีก็ได้)
-                     status="report"        #พิมพ์คำว่า "normal" เพื่อยิงโหลดเเละ upload report ไปที่ sheet
+                     status="normal"        #พิมพ์คำว่า "normal" เพื่อยิงโหลดเเละ upload report ไปที่ sheet
                                             #พิมพ์คำว่า "report" upload report ล่าสุดไปที่ sheet
 ##########################################################################
 ##########################################################################
