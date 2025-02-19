@@ -21,7 +21,7 @@ export default function() {
     const pnineone = data.metrics.http_req_duration["p(90)"];
     const pninefive = data.metrics.http_req_duration["p(95)"];
     const request = (data.metrics.http_reqs.count);
-    const http_reqs_pass = (data.metrics.http_req_failed.passes);
+    const http_reqs_fails = (data.metrics.http_req_failed.fails);
     const tps = (data.metrics.http_reqs.rate).toFixed(2);
     const testtime = Math.ceil(request/tps);
     const avg = (avgIterationDuration/1000).toFixed(2);
@@ -41,8 +41,9 @@ export default function() {
     const e503 = data.root_group.checks['503 Service Unavailable'].passes;;
     const e504 = data.root_group.checks['504 Gateway Timeout'].passes;;
     const unknown = request - (e200+e201+e400+e401+e403+e404+e429+e500+e502+e503+e504);
-    let error = http_reqs_pass;
-
+    const error = http_reqs_fails;
+    const sumerror = error-(unknown+e400+e401+e403+e404+e429+e500+e502+e503+e504);
+    const finalunknown = unknown+sumerror;
  
     const now = new Date();
     const startTime = new Date(now.getTime() - (testtime*1000));
@@ -72,7 +73,7 @@ export default function() {
       });
       if (error!=0) {
         if (unknown!=0) {
-          console.log("❌ Unknown errors : "+unknown);
+          console.log("❌ Unknown errors : "+finalunknown);
         }
         console.log("❌ Number of errors : "+error);
       }
