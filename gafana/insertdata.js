@@ -125,14 +125,6 @@ export default function () {
   });
 
   http.post(urlgetdata, payloadgetdata, paramsgetdata);
-  console.log("==============================");
-  console.log(`Average: ${avg}`);
-  console.log(`Min: ${min}`);
-  console.log(`Max: ${max}`);
-  console.log(`90th: ${p90}`);
-  console.log(`95th: ${p95}`);
-  console.log(`TPS: ${tps}`);
-
 }
 function formatTime(date) {
   const hours = date.getHours();
