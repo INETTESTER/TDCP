@@ -59,7 +59,7 @@ export function oauth_create_qr_bay() {
 
     const response_transaction = http.post(url_transaction, payload_transaction, params_transaction);
     if (!response_transaction || response_transaction.error_code || (response_transaction.status !== 200 && response_transaction.status !== 201)) {
-        console.log("Create Fail");
+        console.log("Create Fail "+response_transaction.status);
         return response_transaction
     }
     const responseBody_transaction = JSON.parse(response_transaction.body);

@@ -1,6 +1,11 @@
 import http from 'k6/http';
 import { check } from 'k6';
-export function oauth_create_qr_callback_bay() {
+import { SharedArray } from 'k6/data';
+const data = new SharedArray('bank_ref', function () {
+    return JSON.parse(open('../file/bay1.json')).bank_ref;
+});
+
+export function oauth_create_qr_callback_bay(scenario) {
     //Step 1 : OAUTH
     const url_oauth = 'https://new-ops-clone.inet.co.th/oauth/api/v1/oauth-token';
     const orderId = `25${__VU}${__ITER}2`;
@@ -114,10 +119,10 @@ export function oauth_create_qr_callback_bay() {
     });
 
     //Step 4: Callback
-
+    const bank_ref = data[scenario.iterationInTest];
     const url_qr_callback = 'https://new-ops-clone.inet.co.th/bay/api/v1/payment/qr/callback';
     const payload_qr_callback = JSON.stringify({
-        trxId: '2412201025367662',
+        trxId: ''+bank_ref,
         trxStatus: '1',
         amount: '1',
         datetime: '2024-12-19T17:05:38Z',
