@@ -122,7 +122,7 @@ export function oauth_create_qr_callback_bay(scenario) {
     const bank_ref = data[scenario.iterationInTest];
     const url_qr_callback = 'https://new-ops-clone.inet.co.th/bay/api/v1/payment/qr/callback';
     const payload_qr_callback = JSON.stringify({
-        trxId: ''+bank_ref,
+        trxId: '' + bank_ref,
         trxStatus: '1',
         amount: '1',
         datetime: '2024-12-19T17:05:38Z',
