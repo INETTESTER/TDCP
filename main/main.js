@@ -35,7 +35,7 @@ export default function () {    //เรียกใช้ API ใน export def
   // response = oauth_create_qr_scb()
   // response = oauth_create_inquirypertxn_scb()
   // response = oauth_create_inquirydate_scb()
-  //response = oauth_create_qr_callback_scb(scenario)
+  response = oauth_create_qr_callback_scb(scenario)
   //=======================CIMB=================================
   // response = oauth_cimb()
   // response = oauth_create_qr_cimb()
@@ -44,7 +44,7 @@ export default function () {    //เรียกใช้ API ใน export def
   //=======================BAY=================================
   // response = oauth_bay()
   // response = oauth_create_bay()
-   response = oauth_create_qr_bay()
+  // response = oauth_create_qr_bay()
   // response = oauth_create_qr_callback_bay()
   // response = callback_bay()
   error_check(response);
