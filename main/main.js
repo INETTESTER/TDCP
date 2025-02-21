@@ -21,6 +21,7 @@ import { oauth_create_qr_callback_bay } from '../api/oauth_create_qr_callback_ba
 import { callback_bay } from '../api/callback_bay.js';
 import { oauth_create_inquirypertxn_scb } from '../api/oauth_create_inquirypertxn_scb.js';
 import { oauth_create_inquirydate_scb } from '../api/oauth_create_inquirydate_scb.js';
+import { verify_callback_cimb } from '../api/verify_callback_cimb.js';
 
 
 //============================================================================
@@ -40,7 +41,8 @@ export default function () {    //เรียกใช้ API ใน export def
   // response = oauth_cimb()
   // response = oauth_create_qr_cimb()
   // response = oauth_create_qr_verify_cimb()
-   response = oauth_create_qr_verify_callback_cimb()
+  // response = oauth_create_qr_verify_callback_cimb()
+  response = verify_callback_cimb(scenario)
   //=======================BAY=================================
   // response = oauth_bay()
   // response = oauth_create_bay()
