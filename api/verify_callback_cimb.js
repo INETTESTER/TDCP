@@ -2,10 +2,10 @@ import http from 'k6/http';
 import { SharedArray } from 'k6/data';
 import { check } from 'k6';
 const data = new SharedArray('payment_transaction_no', function () {
-    return JSON.parse(open('../file/ref1.json')).payment_transaction_no;
+    return JSON.parse(open('../file/cimb1.json')).payment_transaction_no;
 });
 const data2 = new SharedArray('merchant_id', function () {
-    return JSON.parse(open('../file/ref1.json')).merchant_id;
+    return JSON.parse(open('../file/cimb1.json')).merchant_id;
 });
 export function verify_callback_cimb(scenario) {
     const ref1 = data[scenario.iterationInTest];
