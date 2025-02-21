@@ -39,13 +39,13 @@ export default function () {    //เรียกใช้ API ใน export def
   //=======================CIMB=================================
   // response = oauth_cimb()
   // response = oauth_create_qr_cimb()
-   response = oauth_create_qr_verify_cimb()
+  // response = oauth_create_qr_verify_cimb()
   // response = oauth_create_qr_verify_callback_cimb()
   //=======================BAY=================================
   // response = oauth_bay()
   // response = oauth_create_bay()
   // response = oauth_create_qr_bay()
-  // response = oauth_create_qr_callback_bay(scenario)
+   response = oauth_create_qr_callback_bay(scenario)
   // response = callback_bay()
   error_check(response);
   sleep(1)
