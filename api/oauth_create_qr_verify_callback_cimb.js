@@ -10,11 +10,12 @@ export function oauth_create_qr_verify_callback_cimb() {
         orderId: "IMAGE-TEST-QR-CIMB" + orderId
     });
     const params_oauth = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json'
         }
     };
-    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth, { timeout: 300000 });
+    const response_oauth = http.post(url_oauth, payload_oauth, params_oauth);
     if (!response_oauth || response_oauth.error_code || (response_oauth.status !== 200 && response_oauth.status !== 201)) {
         console.log("Oauth Fail!!");
         return response_oauth
@@ -50,13 +51,14 @@ export function oauth_create_qr_verify_callback_cimb() {
         payType: "QR"
     });
     const params_transaction = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token_oauth
         }
     };
 
-    const response_transaction = http.post(url_transaction, payload_transaction, params_transaction, { timeout: 300000 });
+    const response_transaction = http.post(url_transaction, payload_transaction, params_transaction);
     if (!response_transaction || response_transaction.error_code || (response_transaction.status !== 200 && response_transaction.status !== 201)) {
         console.log("Create Fail!!");
         return response_transaction
@@ -89,12 +91,13 @@ export function oauth_create_qr_verify_callback_cimb() {
     });
 
     const params_qr = {
+        timeout: "300s", // หรือ "300000ms"
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Basic Y2ltYnByb21wdHBheTpDMU04Zzt2aU49eWpvVTRU'
         }
     };
-    const response_qr = http.post(url_qr, payload_qr, params_qr, { timeout: 300000 });
+    const response_qr = http.post(url_qr, payload_qr, params_qr);
     if (!response_qr || response_qr.error_code || (response_qr.status !== 200 && response_qr.status !== 201)) {
         console.log("QR Code Fail!!");
         return response_qr
@@ -142,6 +145,7 @@ export function oauth_create_qr_verify_callback_cimb() {
             "Authorization": "Basic Y2ltYnByb21wdHBheTpDMU04b25wcmQ="
         }
     };
+
     const response_verify = http.post(url_verify, payload_verify, params_verify);
     if (!response_verify || response_verify.error_code || (response_verify.status !== 200 && response_verify.status !== 201)) {
         console.log("Verify Fail!!");
@@ -164,11 +168,16 @@ export function oauth_create_qr_verify_callback_cimb() {
 
     //Step 5: Callback
     const url_callback = 'https://new-ops-clone.inet.co.th/cimb/api/payment/cimb/notification/v1';
-    const headers_callback = {
-        'True-Client-Ip': '184.22.188.182',
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic Y2ltYnByb21wdHBheTpDMU04b25wcmQ=', // แทนที่ด้วย Token จริง
+
+    const params_callback = {
+        timeout: "300s", // หรือใช้ "300000ms" ตามความต้องการ
+        headers: {
+            'True-Client-Ip': '184.22.188.182',
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic Y2ltYnByb21wdHBheTpDMU04b25wcmQ=', // แทนที่ด้วย Token จริง
+        }
     };
+
     const payload_callback = JSON.stringify({
         header: {
             requester_system: 'SIBS',
@@ -189,7 +198,8 @@ export function oauth_create_qr_verify_callback_cimb() {
         },
     });
 
-    const response_callback = http.post(url_callback, payload_callback, headers_callback, { timeout: 300000 });
+    // ใช้ params_callback ในการตั้งค่า timeout และ headers
+    const response_callback = http.post(url_callback, payload_callback, params_callback);
     if (!response_callback || response_callback.error_code || (response_callback.status !== 200 && response_callback.status !== 201)) {
         console.log("Callback Fail!!");
         return response_callback
