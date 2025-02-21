@@ -9,8 +9,8 @@ IP_ADDRESS=$(ipconfig | findstr "IPv4" | sed -E 's/.*: ([0-9]+\.[0-9]+\.[0-9]+\.
                      google_sheet="https://docs.google.com/spreadsheets/d/13ZqmW82FnQj_uY-9VjUCPNvBMFEZJcodK1AmRn_euW0/edit?gid=180143788#gid=180143788" 
                      id="$IP_ADDRESS"                 #เปลี่ยน id ทุกครั้งที่ยิง
                      user="5000";            #จำนวนผู้ใช้งาน
-                     durationx="180";         #วินาที
-                     scenario="3"           #scenario="1" ยิงเเบบกำหนด request (duration ได้แค่ 1 วินาที)
+                     durationx="60";         #วินาที
+                     scenario="2"           #scenario="1" ยิงเเบบกำหนด request (duration ได้แค่ 1 วินาที)
                      cid="1"                #scenario="2" ยิงเเบบกำหนด VUs  (กำหนดว่า user x คน ใช้ระบบ x วินาที)
                                             #scenario="3" ยิงเเบบกำหนด request แต่ไม่แม่นยำ (duration กี่วินาทีก็ได้)
                      status="normal"        #พิมพ์คำว่า "normal" เพื่อยิงโหลดเเละ upload report ไปที่ sheet
