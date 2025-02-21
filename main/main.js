@@ -12,7 +12,7 @@ import { oauth_create_scb } from '../api/oauth_create_scb.js';
 import { oauth_cimb } from '../api/oauth_cimb.js';
 import { oauth_create_qr_cimb } from '../api/oauth_create_qr_cimb.js';
 import { oauth_create_qr_scb } from '../api/oauth_create_qr_scb.js';
-//import { oauth_create_qr_verify_callback_cimb } from '../api/oauth_create_qr_verify_callback_cimb.js';
+import { oauth_create_qr_verify_callback_cimb } from '../api/oauth_create_qr_verify_callback_cimb.js';
 import { oauth_create_qr_callback_scb } from '../api/oauth_create_qr_callback_scb.js';
 import { oauth_bay } from '../api/oauth_bay.js';
 import { oauth_create_bay } from '../api/oauth_create_bay.js';
@@ -39,8 +39,8 @@ export default function () {    //เรียกใช้ API ใน export def
   //=======================CIMB=================================
   // response = oauth_cimb()
   // response = oauth_create_qr_cimb()
-   response = oauth_create_qr_verify_cimb()
-  // response = oauth_create_qr_verify_callback_cimb()
+  // response = oauth_create_qr_verify_cimb()
+   response = oauth_create_qr_verify_callback_cimb()
   //=======================BAY=================================
   // response = oauth_bay()
   // response = oauth_create_bay()
