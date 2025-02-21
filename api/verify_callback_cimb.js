@@ -10,6 +10,7 @@ const data2 = new SharedArray('merchant_id', function () {
 export function verify_callback_cimb(scenario) {
     const ref1 = data[scenario.iterationInTest];
     const ref2 = data2[scenario.iterationInTest];
+    //console.log(ref1+"  "+ref2);
     const url_verify = 'https://new-ops-clone.inet.co.th/cimb/api/payment/cimb/verifydata/v1';
     const payload_verify = JSON.stringify({
         header: {
